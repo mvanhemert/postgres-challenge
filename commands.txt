@@ -1,0 +1,14 @@
+# Build the Container
+```
+docker build -t pgdb .
+```
+
+# Run the Container
+```
+docker run -d -p 5432:5432 -v /home/mikaelvanhemert/Documents/repos/onboarding/USAF-gmdb-docker-db:/USAF-gmdb-docker-db --name pgdb pgdb
+```
+
+# Populate the Database
+```
+psql -h localhost -d pgdb -U pgdb --password -f setup.sql
+```
